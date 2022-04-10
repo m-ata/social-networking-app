@@ -19,12 +19,25 @@ module.exports = {
           },
           {
             enforce: "pre",
-            test: /\.js$/,
+            test: /\.(js|ts)$/,
             loader: "source-map-loader",
           },
           {
-            test: /\.css$/,
-            loader: "css-loader",
+            test: /\.(sa|sc|c)ss$/,
+            use: ['style-loader',
+              {
+                'loader': 'css-loader',
+                'options': {
+                  'sourceMap': true,
+                },
+              },
+              {
+                'loader': 'sass-loader',
+                'options': {
+                  'sourceMap': true,
+                },
+              },
+            ]
           },
         ],
       },
