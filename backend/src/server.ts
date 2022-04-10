@@ -2,7 +2,9 @@ import express from "express";
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import router from "./routes";
+import './models';
 
 class Server {
   public app: express.Application;
@@ -19,6 +21,7 @@ class Server {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(cors());
+    this.app.use(router);
   }
 
   private mongoDBConnection = async () => {
