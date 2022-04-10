@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import router from "./routes";
+import './models';
 
 class Server {
   public app: express.Application;

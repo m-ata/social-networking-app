@@ -2,7 +2,7 @@ import { model, Schema } from 'mongoose';
 import { Post } from './../interfaces/post';
 
 const PostSchema = new Schema({
-    userId: {
+    user: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'users'
