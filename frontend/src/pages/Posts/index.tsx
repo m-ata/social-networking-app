@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //custom imports
 import { fetchPosts } from "./../../api/post";
-import { WithLoader } from "../../components/WithLoader/WithLoader";
+import { WithLoader } from "../../components/WithLoader";
 import { LoaderContext } from "../../Routing";
 import PostCard from './../../components/PostCard';
 
