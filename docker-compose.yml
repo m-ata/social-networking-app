@@ -1,0 +1,27 @@
+version: "3"
+services:
+    social-network-frontend:
+      container_name: social-network-frontend
+      command: npm start
+      build: ./frontend
+      volumes:
+        - ./frontend/src:/social-network-app/social-networking-frontend/src
+      ports:
+        - 8080:3000
+      environment:
+        NODE_ENV: development
+    social-network-backend:
+      container_name: social-network-backend
+      command: npm run dev
+      build: ./backend
+      volumes:
+        - ./backend/src:/social-network-app/social-networking-backend/src
+      ports:
+        - 8082:8081
+      environment:
+        NODE_ENV: development
+    db:
+      container_name: mongo_db
+      image: mongo
+      ports:
+        - 27017:27017
