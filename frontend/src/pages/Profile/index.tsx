@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Card, Avatar } from '@mui/material';
-import { WithLoader } from '../../components/WithLoader/WithLoader';
+import { WithLoader } from '../../components/WithLoader';
 import { useParams } from 'react-router-dom';
 import {fetchUser} from '../../api/user'
 
 const Profile = () => {
-	const [user, setUser] = React.useState({});
+	const [user, setUser] = React.useState<any>({});
 	const {id} = useParams();
 	console.log(id);
 
@@ -15,7 +15,6 @@ const Profile = () => {
 			if (userResponse) {
 				setUser(userResponse);
 			}
-			console.log(userResponse);
 		})();
 	}, [])
 

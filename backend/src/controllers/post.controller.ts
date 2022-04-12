@@ -7,12 +7,7 @@ class PostController {
     // get all posts controller with pagination
     public getAllPosts = async (req: express.Request, res: express.Response) => {
         try {
-            const { limit, page } = req?.query;
-            const paginationLimit = Number(limit) || 20;
-            const paginationPage = Number(page) || 1;
-            const skip = (paginationPage - 1) * paginationLimit;
-
-            const posts: Post[] = await PostModel.find().populate('user').skip(skip).limit(paginationLimit);
+            const posts: Post[] = await PostModel.find().populate('user');
 
             if (posts) {
                 res.status(200).send({

@@ -1,0 +1,22 @@
+.card {
+    min-height: 200px;
+    margin: 16px;
+    padding: 16px;
+
+    .card-header-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .user-content {
+            display: flex;
+            width: fit-content;
+    
+            &:hover {
+                cursor: pointer;
+            }
+            & p {
+                margin-left: 16px;
+            }
+        }
+    }
+}
