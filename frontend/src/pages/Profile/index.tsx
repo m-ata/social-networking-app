@@ -15,7 +15,6 @@ const Profile = () => {
 			if (userResponse) {
 				setUser(userResponse);
 			}
-			console.log(userResponse);
 		})();
 	}, [])
 
