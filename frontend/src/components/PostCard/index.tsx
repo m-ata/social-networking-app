@@ -10,7 +10,7 @@ import "./index.scss";
 
 const PostCard = (props: any) => {
 
-    const { post: { user, body } } = props;
+    const { post: { user, body, _id } } = props;
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -40,7 +40,7 @@ const PostCard = (props: any) => {
             </div>
             <p> {body} </p>
         </Card>
-        <DeleteModal open={isModalOpen} onClose={handleModal} />
+        <DeleteModal open={isModalOpen} onClose={handleModal} id={_id} />
     </>
 };
 export default PostCard;

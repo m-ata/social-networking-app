@@ -14,3 +14,16 @@ export const fetchPosts = async () => {
         throw err;
       }
 }
+
+export const deletePost = async (id: string) => {
+  try {
+      const response: AxiosResponse<any> = await axios.delete(`${process.env.API_URL}/post/delete/${id}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+      });
+      return response?.data;
+    } catch (err) {
+      throw err;
+    }
+}

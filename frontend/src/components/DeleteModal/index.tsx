@@ -1,14 +1,32 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { deletePost } from './../../api/post';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const DeleteModal = (props: any) => {
 
-    const { open, onClose } = props;
+    const { open, onClose, id } = props;
+
+    const handleDeletePost = async () => {
+        const postResponse = await deletePost(id);
+        if (postResponse?.data) {
+            toast.success('Post Deleted successfully', {
+                position: 'top-right',
+                autoClose: 5000,
+                closeOnClick: true,
+                closeButton: true
+            });
+            onClose(false);
+        } else {
+            toast.error('Something went wrong!', {
+                position: 'top-right',
+                autoClose: 5000,
+                closeOnClick: true,
+                closeButton: true
+            });
+        }
+    }
 
   return (
     <div>
@@ -28,11 +46,12 @@ const DeleteModal = (props: any) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => onClose(false)}>Cancel</Button>
-          <Button onClick={() => onClose(false)} autoFocus>
+          <Button onClick={handleDeletePost} autoFocus>
             Ok
           </Button>
         </DialogActions>
       </Dialog>
+      <ToastContainer />
     </div>
   );
 };
