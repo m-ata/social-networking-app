@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 //custom imports
 import { fetchPosts } from "./../../api/post";
 import { WithLoader } from "../../components/WithLoader/WithLoader";
@@ -9,10 +9,14 @@ const Posts = () => {
   const [_, setIsloading] = React.useContext(LoaderContext);
 
   const [posts, setPosts] = React.useState([]);
+  const [isFetchPosts, setIsFetchPosts] = useState<boolean>(true);
 
   React.useEffect(() => {
-    handleFetchPosts();
-  }, []);
+    if (isFetchPosts) {
+      handleFetchPosts();
+      setIsFetchPosts(false);
+    }
+  }, [isFetchPosts]);
 
   const handleFetchPosts = async () => {
     setIsloading(true);
@@ -26,7 +30,7 @@ const Posts = () => {
   return (
     <div>
       {posts?.map((p, idx) => (
-        <PostCard post={p} key={idx} />
+        <PostCard post={p} key={idx} setFetchPosts={setIsFetchPosts} />
       ))}
     </div>
   );

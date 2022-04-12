@@ -9,9 +9,9 @@ import { TPost, TUser } from '../../types';
 //style import
 import "./index.scss";
 
-const PostCard = (props: { post: TPost }) => {
+const PostCard = (props: { post: TPost, setFetchPosts: Function }) => {
 
-    const { post: { user, body, _id } } = props;
+    const { post: { user, body, _id }, setFetchPosts } = props;
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -23,8 +23,9 @@ const PostCard = (props: { post: TPost }) => {
     };
 
     // handle open and close modal
-    const handleModal = (modalState: boolean) => {
-        setIsModalOpen(modalState)
+    const handleModal = (modalState: boolean, isDeleted?: false) => {
+        setIsModalOpen(modalState);
+        isDeleted ? setFetchPosts(true): null;
     };
 
     return <>

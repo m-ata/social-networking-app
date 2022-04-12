@@ -22,7 +22,7 @@ const DeleteModal = (props: TDialogProps) => {
                 closeOnClick: true,
                 closeButton: true
             });
-            onClose(false);
+            onClose(false, true);
         } else {
             toast.error('Something went wrong!', {
                 position: 'top-right',
