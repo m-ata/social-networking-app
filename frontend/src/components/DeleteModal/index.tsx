@@ -1,13 +1,18 @@
 import * as React from 'react';
+//mui imports
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { deletePost } from './../../api/post';
+// toast import
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+//custom imports
+import { TDialogProps } from '../../types';
+import { deletePost } from './../../api/post';
 
-const DeleteModal = (props: any) => {
+const DeleteModal = (props: TDialogProps) => {
 
     const { open, onClose, id } = props;
 
+    // delete post handler
     const handleDeletePost = async () => {
         const postResponse = await deletePost(id);
         if (postResponse?.data) {

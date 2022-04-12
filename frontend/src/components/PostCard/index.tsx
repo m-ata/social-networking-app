@@ -5,10 +5,11 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 // router navigation imports
 import { useNavigate } from "react-router-dom";
 import DeleteModal from '../DeleteModal';
+import { TPost, TUser } from '../../types';
 //style import
 import "./index.scss";
 
-const PostCard = (props: any) => {
+const PostCard = (props: { post: TPost }) => {
 
     const { post: { user, body, _id } } = props;
 
@@ -17,12 +18,14 @@ const PostCard = (props: any) => {
     const navigate = useNavigate();
 
     // redirect to user-profile
-    const navigateToProfile = (user: any) => {
-        navigate(`/user-profile/${user._id}`);
+    const navigateToProfile = (id: string) => {
+        navigate(`/user-profile/${id}`);
     };
 
     // handle open and close modal
-    const handleModal = (modalState: boolean) => setIsModalOpen(modalState);
+    const handleModal = (modalState: boolean) => {
+        setIsModalOpen(modalState)
+    };
 
     return <>
         <Card className="card">
