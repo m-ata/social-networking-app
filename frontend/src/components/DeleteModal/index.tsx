@@ -15,7 +15,7 @@ const DeleteModal = (props: TDialogProps) => {
     // delete post handler
     const handleDeletePost = async () => {
         const postResponse = await deletePost(id);
-        if (postResponse?.data) {
+        if (postResponse) {
             toast.success('Post Deleted successfully', {
                 position: 'top-right',
                 autoClose: 5000,
