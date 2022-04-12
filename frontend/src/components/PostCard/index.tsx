@@ -5,7 +5,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 // router navigation imports
 import { useNavigate } from "react-router-dom";
 import DeleteModal from '../DeleteModal';
-import { TPost, TUser } from '../../types';
+import { TPost } from '../../types';
 //style import
 import "./index.scss";
 

@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const fetchUser = async (id) => {
+export const fetchUser = async (id: string) => {
     try {
         const response: AxiosResponse<any> = await axios.get(`${process.env.API_URL}/user/${id}`, {
             headers: {
