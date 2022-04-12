@@ -1,10 +1,23 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
 import { Card, Avatar } from '@mui/material';
+import { WithLoader } from '../../components/WithLoader/WithLoader';
+import { useParams } from 'react-router-dom';
+import {fetchUser} from '../../api/user'
 
 const Profile = () => {
+	const [user, setUser] = React.useState({});
+	const {id} = useParams();
+	console.log(id);
 
-	const user = useSelector((state: any) => state.user.userInfo);
+	React.useEffect(() => {
+		(async () => {
+			const userResponse = await fetchUser(id);
+			if (userResponse) {
+				setUser(userResponse);
+			}
+			console.log(userResponse);
+		})();
+	}, [])
 
 	return <div> User Profile
 		<Card className="card">
@@ -15,7 +28,6 @@ const Profile = () => {
 			</div>
 			<p> {user.about} </p>
 		</Card>
-
 	</div>
 };
-export default Profile;
+export default WithLoader(Profile);
