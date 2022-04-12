@@ -16,3 +16,12 @@ export type TUser = {
     email: string;
     about: string;
 }
+export type TFetchPostResponse = {
+    data: TPost[]
+}
+export type TDeletePostResponse = {
+    data: TPost;
+}
+export type TFetchUserResponse = {
+    data: TUser;
+}

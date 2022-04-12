@@ -1,8 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
+import { TFetchUserResponse } from './../types';
 
 export const fetchUser = async (id: string) => {
     try {
-        const response: AxiosResponse<any> = await axios.get(`${process.env.API_URL}/user/${id}`, {
+        const response: AxiosResponse<TFetchUserResponse> = await axios.get(`${process.env.API_URL}/user/${id}`, {
             headers: {
               'Content-Type': 'application/json'
             }

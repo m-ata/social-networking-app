@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-// import { REQUEST_HEADER } from '../constant';
-// import { IFetchppRequestBody, IAppFetchResponse } from './../interfaces';
+import { TFetchPostResponse, TDeletePostResponse } from './../types';
 
 export const fetchPosts = async () => {
     try {
-        const response: AxiosResponse<any> = await axios.get(`${process.env.API_URL}/post/all`, {
+        const response: AxiosResponse<TFetchPostResponse> = await axios.get(`${process.env.API_URL}/post/all`, {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -17,12 +16,12 @@ export const fetchPosts = async () => {
 
 export const deletePost = async (id: string) => {
   try {
-      const response: AxiosResponse<any> = await axios.delete(`${process.env.API_URL}/post/delete/${id}`, {
+      const response: AxiosResponse<TDeletePostResponse> = await axios.delete(`${process.env.API_URL}/post/delete/${id}`, {
           headers: {
             'Content-Type': 'application/json'
           }
       });
-      return response?.data;
+      return response?.data?.data;
     } catch (err) {
       throw err;
     }

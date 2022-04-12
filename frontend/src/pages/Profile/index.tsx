@@ -7,7 +7,6 @@ import {fetchUser} from '../../api/user'
 const Profile = () => {
 	const [user, setUser] = React.useState<any>({});
 	const {id} = useParams();
-	console.log(id);
 
 	React.useEffect(() => {
 		(async () => {
