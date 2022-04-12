@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6252a094e56c18f3ca92b809"
+  },
+  "username": "mata",
+  "email": "muhammad_ata@outlook.com",
+  "about": "I am a software developer"
+},{
+  "_id": {
+    "$oid": "625500bf93c00211645b7533"
+  },
+  "username": "Muhammad",
+  "email": "muhammadata96@gmail.com",
+  "about": "I am a Full stack software engineer"
+}]
